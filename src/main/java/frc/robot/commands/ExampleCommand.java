@@ -17,6 +17,7 @@ public class ExampleCommand extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
+
   public ExampleCommand(ExampleSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -29,7 +30,10 @@ public class ExampleCommand extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    //Use motorSpeed function in the Example Subsystem to set the speed of the motor to 0.5 (50%)
+    m_subsystem.motorSpeed(.5);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -38,6 +42,7 @@ public class ExampleCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    //return false to never end the command
     return false;
   }
 }

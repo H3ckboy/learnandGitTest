@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -13,7 +16,23 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  
+  //creating a Config for SparkMAX Controllers
+  public static final SparkMaxConfig kTwntyAmpConfig = new SparkMaxConfig();
+  public static final SparkMaxConfig kFrtyAmpConfig = new SparkMaxConfig();
+
   public static class OperatorConstants {
+    //
     public static final int kDriverControllerPort = 0;
   }
+  public static class MotorConstants {
+    public static final MotorType kNEO = MotorType.kBrushless;
+  }
+
+  static{
+    //Creating a current limit for SparkMAX Controllers, 20A option and 40A option.
+    kTwntyAmpConfig.smartCurrentLimit(25);
+    kFrtyAmpConfig.smartCurrentLimit(45);
+  }
+
 }
